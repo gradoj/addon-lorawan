@@ -1,5 +1,13 @@
 ARG BUILD_FROM
-FROM $BUILD_FROM
+#FROM $BUILD_FROM
+#FROM ghcr.io/home-assistant/amd64-base-debian:bullseye
+
+
+# Change this line at the top of your Dockerfile
+FROM debian:bullseye-slim
+
+# The rest of your Dockerfile stays the same, but we need to add this near the beginning
+ENV DEBIAN_FRONTEND=noninteractive
 
 # Install supporting services
 RUN apt-get update && apt-get install -y \
